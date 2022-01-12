@@ -39,7 +39,3 @@ for value in numbers: # for each value that is in the list called ‘numbers’
                 print(finalValue)
             else:
                 continue
-            # ADD YOUR CODE HERE
-    # ADD ANY OTHER CODE HERE THAT YOU NEED TO EXECUTE AFTER EACH INCREMENT OF THE FIRST LOOP BUT NOT THE SECOND
-
-

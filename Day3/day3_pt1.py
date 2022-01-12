@@ -1,23 +1,50 @@
-"How many trees will be hit when following a -3/1 slope?"
-"Maia Egnal"
-map = []
+row_list = []
+tree_count = 0
+
+previous_index_right = 0
+
+index_right = 3
+
+previous_index_down = 0
+
+index_down = 1
+
+ 
+
 f = open("inputDay3.txt")
-for item in f.readlines():
-    map.append(item)
-f.close
 
-count = 0
-new line = 0
-new position = 0
-for string in map:
-    mapForTest = "-" * 100 #repeat all of the strings in map 100 times within the same line
-for item in mapForTest:
-   itemCheck = item[new line][new position] #go one string down, count three more positions over than the last time
-   if itemCheck = "#": #if itemCheck is a tree, then add one to the tree count
-       count == count + 1
-    else
-        continue #if it is not a tree, leave it alone
-   new line == new line + 1 #reset new line
-   new position == new position + 3 #reset new position for next time
+for line in f.readlines():
 
+    row_list.append(line)
 
+f.close()
+
+row_list = [line.replace('\n','') for line in row_list]
+
+ 
+
+for line in row_list:
+
+    try:
+
+        if row_list[index_down][index_right] == '#':
+
+            tree_count = tree_count + 1
+
+            # print("Oh no a tree!")
+
+        index_right = index_right + 3
+
+        if index_right >= len(line):
+
+            index_right = index_right - len(line)
+
+        index_down = index_down + 1
+
+    except IndexError:
+
+        print("index_down was " + str(index_down) + " and index_right was " + str(index_right))
+
+        break
+
+print(tree_count)
